@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#111318">
+
+    <!-- ══════════════════════════════════
+         TOP BAR
+    ══════════════════════════════════ -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1A1E2A"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:text="Repositori"
+            android:textColor="#E8E9EC"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEksporCV"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_btn_gold"
+            android:text="Ekspor CV"
+            android:textColor="#111318"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp" />
+
+    </RelativeLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2A2E3D" />
+
+    <!-- ══════════════════════════════════
+         SEARCH BAR
+    ══════════════════════════════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1E2A"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search_bar"
+            android:paddingHorizontal="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍"
+                android:textSize="13sp"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/etCariKegiatan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Cari portofolio..."
+                android:textColorHint="#4A5568"
+                android:textColor="#E8E9EC"
+                android:textSize="13sp"
+                android:background="@null"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <!-- Badge jumlah kegiatan -->
+        <TextView
+            android:id="@+id/tvJumlahKegiatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="0"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#111318"
+            android:background="@drawable/bg_btn_gold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2A2E3D" />
+
+    <!-- ══════════════════════════════════
+         SECTION LABEL
+    ══════════════════════════════════ -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PORTOFOLIO SAYA"
+        android:textColor="#FFD700"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <!-- ══════════════════════════════════
+         SAMPLE CARD PREVIEW (item_portfolio)
+         Hanya terlihat di Layout Editor.
+         Di runtime, RecyclerView yang
+         mengisi daftar item secara dinamis.
+    ══════════════════════════════════ -->
+    <include
+        layout="@layout/item_portfolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- ══════════════════════════════════
+         KONTEN: RecyclerView + Empty State
+    ══════════════════════════════════ -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- RecyclerView — list pengalaman -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewKegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="80dp"
+            android:clipToPadding="false"
+            tools:itemCount="0"
+            tools:listitem="@layout/item_portfolio" />
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/layoutEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📂"
+                android:textSize="52sp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum ada portofolio"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#E8E9EC" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambahkan pengalaman atau project pertamamu!"
+                android:textSize="13sp"
+                android:textColor="#6B7289"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- FAB Tambah -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabTambahKegiatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:text="+ Tambah"
+            android:textColor="#111318"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            app:backgroundTint="#FFD700"
+            app:elevation="6dp"
+            app:rippleColor="#E6C200" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    bg_avatar_inisial.xml — Lingkaran emas untuk avatar inisial nama
+
+    Letakkan di:
+    app/src/main/res/drawable/bg_avatar_inisial.xml  ← FILE BARU
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#FFD700" />
+</shape>
