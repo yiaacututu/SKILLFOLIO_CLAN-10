@@ -1,6 +1,7 @@
 Nama: Cutrin Joy M.T Sihombing 
 NPM: 24082010170
 Mata Kuliah: Pemrograman Mobile
+Clan: 10(Barbie)
 Bagian Pengerjaan: Interface untuk menampilkan informasi detail dari recycleview
 
 Detail Aplikasi
